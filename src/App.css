@@ -2,7 +2,7 @@ body {
 
   margin: 0;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: pink;
+  background-color: rgb(255, 255, 255);
  
 }
 
@@ -12,3 +12,6 @@ body {
 .avatar {
   border-radius: 50%;
 }
+
+
+

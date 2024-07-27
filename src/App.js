@@ -1,114 +1,58 @@
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { useState } from "react";
 import './App.css';
-import { useState } from 'react';
 
 
 
+function Square() {
+  
+  const [value, setValue] = useState(null);
 
-
-
-const products = [
-  { id: 1, name: 'Manzana', isFruit: true },
-  { id: 2, name: 'Cebolla', isFruit: false },
-  { id: 3, name: 'Fresa', isFruit: true },
-  { id: 4, name: 'Sandia', isFruit: true },
-  { id: 5, name: 'Gitomate', isFruit: false },
-];
-
-const user = {
-  name: 'Juan Mendoza',
-  imageUrl: './assets/imagen.png',
-  imageSize: 90,
-};
-
-function Profile() {
-  return (
-    <>
-      <h1>{user.name}</h1>
-      <img
-        className='avatar'
-        src={user.imageUrl}
-        alt={'foto de ' + user.name}
-        style={{
-          width: user.imageSize,
-          height: user.imageSize
-        }}
-      />
-    </>
-  );
-}
-
-
-
-
-function MyButton() {
-  return (
-    <button> Soy un botón </button>
-  );
-}
-
-
-function ProductList() {
-  const listItems = products.map(product =>
-    <li key={product.id} style={{ color: product.isFruit ? 'magenta' : 'darkgreen' }}>
-      {product.name}
-    </li>
-  );
-  return <ul>{listItems}</ul>;
-}
-
-
-
-function MyBuut (){
   function handleClick() {
-    alert('!Me Corrrooo!');
+    setValue('X');
   }
+
+
   return (
-    <button onClick={handleClick}>
-      Hazme Click
+    <button
+      className="square"
+      onClick={handleClick}
 
+    >
+      {value}
     </button>
-
-  );
+  );  
 }
 
 
-function Mybuu ({count,onClick}){
-  return(
-    <button onClick={onClick}>
 
-    Hicisite click {count} más de dosveces 
-    </button>
-  );
-  
-}
 
-export default function MyApp() {
+export default function Board() {
 
-  const [count, setCount] = useState(0);
-  function hendleClick(){
-    setCount(count + 1);  
-  }
-  
+  const [squares, setSqueares] = useState(Array(9).fill(null))
 
   return (
-    <div>
+  
+  <>
+  <div className="board-row">
+    <Square value={squares[0]}/>
+    <Square value={squares[1]}/>
+    <Square value={squares[2]}/>
+  </div>
+  <div className="board-row">
+    <Square value={squares[3]}/>
+    <Square value={squares[4]}/>
+    <Square value={squares[5]} />
+  </div>
+  <div className="board-row">
+    <Square value={squares[6]} />
+    <Square value={squares[7]}/>
+    <Square  value={squares[8]}/>
+  </div>
 
-
-
-
-
-      <h1>Bienvenido a mi aplicación</h1>
-      <Profile />
-      <br />
-      <MyButton />
-
-      <p>hola. <br /> ¿cómo vas en esto?</p>
-        <ProductList />
-
-    <MyBuut />
-    <Mybuu count={count} onClick={hendleClick} />
-    <Mybuu count={count} onClick={hendleClick} />
     
-    </div>
+  </>  
+
   );
 }
