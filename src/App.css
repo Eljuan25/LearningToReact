@@ -2,16 +2,28 @@ body {
 
   margin: 0;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(107, 107, 107);
  
 }
 
 
+.board-row{
+  text-align: center;
 
+}
 
 .avatar {
   border-radius: 50%;
 }
 
 
+.Titulo {
+  text-align: center;
 
+}
+
+
+.status{
+
+  text-align: center;
+}
